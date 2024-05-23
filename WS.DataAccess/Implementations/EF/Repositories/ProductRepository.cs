@@ -16,12 +16,12 @@ namespace WS.DataAccess.Implementations.EF.Repositories
     public async Task<Product> GetByIdAsync(int productId, params string[] includeList)
         {
             return await GetAsync (prd => prd.ProductId == productId, includeList);
-        }
+        } 
 
     public async Task<List<Product>> GetByPriceAsync(decimal min, decimal max, params string[] includeList)
     {
       return await GetAllAsync(prd => prd.UnitPrice > min && prd.UnitPrice < max, includeList);
-    }
+    }   
 
     public  async Task<List<Product>> GetByStockAsync(short min, short max, params string[] includeList)
     {
