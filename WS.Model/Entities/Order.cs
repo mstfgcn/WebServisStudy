@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using WS.Model.Dtos.Employee;
 
 namespace WS.Model.Entities
 {
@@ -30,7 +31,7 @@ namespace WS.Model.Entities
         //public Customer? Customer { get; set; }
         //public Shippers Shippers { get; set; }
 
-
+        
 
 
     }

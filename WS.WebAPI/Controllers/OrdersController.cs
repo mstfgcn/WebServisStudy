@@ -26,7 +26,7 @@ namespace WS.WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetById(int id)
         {
-            var dto=await _orderBs.GetByOrderAsync(id,"Employee","Customer","ShipVia");
+            var dto=await _orderBs.GetByOrderAsync(id,"Employee");
             return SendResponse(dto);
         }
 

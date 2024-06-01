@@ -1,11 +1,15 @@
 ﻿using Infrastructure.Model;
+using System.ComponentModel.DataAnnotations;
+using WS.Model.Dtos.Employee;
+using WS.Model.Entities;
 
 namespace WS.Model.Dtos.Order
 {
     public class OrderGetDto:IDto
     {
+        [Key]
         public int OrderId { get; set; }
-        //public int EmployeeId { get; set; }
+        //public int EmployeeID { get; set; }
         //public string? CustomerId { get; set; }
         public DateTime? OrderDate { get; set; } //sipariş tarihi
         public DateTime? RequiredDate { get; set; } //istenen tarih
@@ -20,12 +24,12 @@ namespace WS.Model.Dtos.Order
         public string? ShipAddress { get; set; }  // sevk edilen adres
 
 
-        //Maplenirken ayarlanıcak
-        public string? EmployeeName { get; set; }
-        public string? CustomerName { get; set; }
-        public string? ShipViaName {  get; set; }
 
-        
+        public EmployeeGetDto Employee { get; set; }
+        //public string? CustomerName { get; set; }
+        //public string? ShipViaName {  get; set; }
+
+
 
     }
 }

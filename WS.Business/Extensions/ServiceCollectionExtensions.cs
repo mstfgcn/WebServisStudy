@@ -16,7 +16,8 @@ namespace WS.Business.Extensions
             services.AddScoped<IProductBs, ProductBs>();
             services.AddScoped<IProductRepository, ProductRepository>();
 
-           
+            services.AddScoped<IEmployeeBs, EmployeeBs>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
             services.AddScoped<ICategoryBs, CategoryBs>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();

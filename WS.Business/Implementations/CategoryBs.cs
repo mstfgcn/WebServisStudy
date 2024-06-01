@@ -34,7 +34,7 @@ namespace WS.Business.Implementations
             var dtoList =await _repo.GetAllAsync(includeList:includeList);
             if (dtoList != null)
             {
-                var returnedList = _mapper.Map<List<CategoryGetDto>>(includeList);
+                var returnedList = _mapper.Map<List<CategoryGetDto>>(dtoList);
                 return ApiResponse<List<CategoryGetDto>>.Success(StatusCodes.Status200OK, returnedList);
             }
             throw new NotFoundException("Kaynak Bulunamadı");

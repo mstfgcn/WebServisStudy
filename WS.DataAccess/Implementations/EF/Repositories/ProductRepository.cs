@@ -1,12 +1,11 @@
 ﻿using Infrastructure.DataAccess.EF;
-using System.Runtime.CompilerServices;
 using WS.DataAccess.Implementations.EF.Contexts;
 using WS.DataAccess.Interfaces;
 using WS.Model.Entities;
 
 namespace WS.DataAccess.Implementations.EF.Repositories
 {
-  public class ProductRepository : BaseRepository<Product, NorthwndContext>, IProductRepository
+    public class ProductRepository : BaseRepository<Product, NorthwndContext>, IProductRepository
   {
     public async Task<List<Product>>GetByCategoryAsync(int categoryId, params string[] includeList)
     {

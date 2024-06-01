@@ -1,12 +1,12 @@
 ﻿using Infrastructure.Utilities;
 using Microsoft.AspNetCore.Mvc;
-using WS.Business.Implementations;
 using WS.Business.Interfaces;
 using WS.Model.Dtos.Category;
-using WS.Model.Entities;
 
 namespace WS.WebAPI.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CategoriesController : BaseController
     {
         private readonly ICategoryBs _categoryBs;
@@ -18,11 +18,12 @@ namespace WS.WebAPI.Controllers
 
         [Produces("application/json", "text/plain")]
         [ProducesResponseType(200, Type = typeof(ApiResponse<List<CategoryGetDto>>))]
+        [ProducesResponseType(400, Type = typeof(string))]
         [ProducesResponseType(404, Type = typeof(string))]
         [HttpGet]
         public async Task<ActionResult> GetAllCategory()
         {
-            var response = await _categoryBs.GetAllCategoryAsync();
+            var response = await _categoryBs.GetAllCategoryAsync("Products");
             return SendResponse(response);
         }
 
@@ -30,11 +31,12 @@ namespace WS.WebAPI.Controllers
         [ProducesResponseType(200, Type = typeof(ApiResponse<CategoryGetDto>))]
         [ProducesResponseType(404, Type = typeof(string))]
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetById([FromQuery] int id)
+        public async Task<ActionResult> GetById(int id)
         {
-            var response = await _categoryBs.GetCategoryAsync(id, "Product");
+            var response = await _categoryBs.GetCategoryAsync(id, "Products");
             return SendResponse(response);
         }
+
         [Produces ("applicaiton/json", "text/plain")]
         [ProducesResponseType(201,Type=typeof(ApiResponse<CategoryGetDto>))]
         [ProducesResponseType(400,Type= typeof(string))]

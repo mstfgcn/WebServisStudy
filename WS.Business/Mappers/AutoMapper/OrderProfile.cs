@@ -13,11 +13,9 @@ namespace WS.Business.Mappers.AutoMapper
     public class OrderProfile:Profile
     {
         public OrderProfile() {
-            //CreateMap<Order, OrderGetDto>()
+            CreateMap<Order, OrderGetDto>();
             //    .ForMember(dest => dest.OrderId,opt => opt.MapFrom(src => src.OrderId))
-            //    .ForMember(dest => dest.EmployeeName== null, opt => opt.MapFrom(src => src.Employee==null 
-            //                                                                          ? ""
-            //                                                                          :src.Employee.FirstName+src.Employee.LastName))
+            //    
             //    //.ForMember(dest => dest.CustomerName==null, opt => opt.MapFrom(src => src.CustomerId ==null
             //    //                                                                      ?""
             //    //                                                                      :src.CustomerId.CustomerName))
@@ -34,6 +32,7 @@ namespace WS.Business.Mappers.AutoMapper
             //    .ForMember(dest => dest.ShipAddress, opt => opt.MapFrom(src => src.ShipAddress)
 
             //    );
+            CreateMap<OrderGetDto, Order>();
             CreateMap<OrderPutDto, Order>();
             CreateMap<OrderPostDto, Order>();
         }

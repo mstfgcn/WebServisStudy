@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Infrastructure.Utilities;
+using WS.Business.CustomExceptions;
 using WS.Business.Interfaces;
 using WS.DataAccess.Interfaces;
 using WS.Model.Dtos.Employee;
@@ -21,7 +22,10 @@ namespace WS.Business.Implementations
 
         public async Task<ApiResponse<List<EmployeeGetDto>>> GetAllEmployee(params string[] includeList)
         {
-            var dtoList = await _repo.GetAllAsync();
+            var dtoList = await _repo.GetAllAsync(includeList:includeList);
+
+            if (dtoList.Count == 0)
+                throw new NotFoundException("kaynak bulunamadı");
             var response =_mapper.Map<List<EmployeeGetDto>>(dtoList);
             return ApiResponse<List<EmployeeGetDto>>.Success(200, response);
         }
