@@ -45,7 +45,7 @@ namespace WS.Business.Implementations
             var dtoList = await _repo.GetByCategoryId(categoryId, includeList);
             if (dtoList != null)
             {
-                var response = _mapper.Map<CategoryGetDto>(includeList);
+                var response = _mapper.Map<CategoryGetDto>(dtoList);
                 return ApiResponse<CategoryGetDto>.Success(StatusCodes.Status200OK, response);
             }    
             
@@ -54,6 +54,10 @@ namespace WS.Business.Implementations
 
         public async Task<ApiResponse<Category>> InsertAsync(CategoryPostDto category)
         {
+
+            if (await _repo.IsCategoryExistsWithName(category.CategoryName))
+                throw new BadRequestException("kategori adı zaten mevcut");
+
             if (category.CategoryName.Length <= 2)
                 throw new  BadRequestException("Category adı 2 veya daha az karakterden oluşamaz.");
             if (category.Description.Length <= 10)
@@ -87,5 +91,7 @@ namespace WS.Business.Implementations
             await _repo.DeleteAsync(category);
             return ApiResponse<NoData>.Success(StatusCodes.Status200OK);
         }
+
+        
     }
 }

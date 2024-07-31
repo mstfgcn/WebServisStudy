@@ -10,12 +10,12 @@ using WS.Model.Entities;
 
 namespace WS.Business.Mappers.AutoMapper
 {
-    public class EmployeeProfile:Profile
+    public class EmployeeProfile : Profile
     {
         public EmployeeProfile()
         {
             CreateMap<Employee, EmployeeGetDto>();
-            CreateMap<Order,OrderGetDto>();
+            
             CreateMap<EmployeePostDto, Employee>();
             CreateMap<EmployePutDto, Employee>();
         }

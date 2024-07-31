@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WS.Business.Interfaces;
 using WS.Model.Dtos.Category;
@@ -21,6 +22,7 @@ namespace WS.WebAPI.Controllers
         [ProducesResponseType(400, Type = typeof(string))]
         [ProducesResponseType(404, Type = typeof(string))]
         [HttpGet]
+        //[Authorize]
         public async Task<ActionResult> GetAllCategory()
         {
             var response = await _categoryBs.GetAllCategoryAsync("Products");

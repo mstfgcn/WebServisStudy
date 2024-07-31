@@ -25,6 +25,9 @@ namespace WS.Business.Extensions
             services.AddScoped<IOrderBs, OrderBs>();
             services.AddScoped<IOrderRepository, OrderRepository>();
 
+            services.AddScoped<IAdminPanelUserBs, AdminPanelUserBs>();
+            services.AddScoped<IAdminPanelUserRepository, AdminPanelUserRepository>();
+
             //--------------------------------------------------------------
 
             //servis genelinde AutoMapper ı kullanılabilir kılmış oluyoruz, aynı zamanda

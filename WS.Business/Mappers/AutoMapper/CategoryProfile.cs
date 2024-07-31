@@ -8,10 +8,17 @@ namespace WS.Business.Mappers.AutoMapper
     {
         public CategoryProfile()
         {
-            CreateMap<Category, CategoryGetDto>(); 
-            CreateMap<CategoryPostDto, Category>();
+            CreateMap<Category, CategoryGetDto>();
+
+
+            CreateMap<CategoryPostDto, Category>()
+                            .ForMember(dest => dest.Picture,
+                                 opt =>
+                                 opt.MapFrom(src => Convert.FromBase64String(src.Base64Picture))
+             );
+
             CreateMap<CategoryPutDto, Category>();
-            
+
 
         }
     }

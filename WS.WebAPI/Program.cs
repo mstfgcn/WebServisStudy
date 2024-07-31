@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddAPIServices();
+builder.Services.AddAPIServices(builder.Configuration);
 // IoC REGISTRATION
 builder.Services.AddBusinessServices();
 
@@ -21,7 +21,11 @@ if (app.Environment.IsDevelopment())
   app.UseSwaggerUI();
 }
 
+
+//[Authorize ]in çalýþabilmesi için bu 2 middleware eklenmesi gerekiyor.
+app.UseAuthentication();
 app.UseAuthorization();
+//----------------------------------------------------------------------
 
 app.MapControllers();
 

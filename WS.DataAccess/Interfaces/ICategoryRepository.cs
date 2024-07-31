@@ -8,6 +8,6 @@ namespace WS.DataAccess.Interfaces
         
         Task<Category> GetByCategoryId (int categoryId, params string[] includeList);
 
-       
-  }
+        Task<bool> IsCategoryExistsWithName(string categoryName);
+    }
 }

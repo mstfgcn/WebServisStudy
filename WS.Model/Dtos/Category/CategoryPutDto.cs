@@ -11,6 +11,7 @@ namespace WS.Model.Dtos.Category
     {
         public string? CategoryName { get; set; }
         public string? Description { get; set; }
+        public bool? IsActive { get; set; }
 
     }
 }

@@ -11,11 +11,7 @@ namespace WS.Business.Mappers.AutoMapper
         public ProductProfile()
         {
             CreateMap<Product, ProductGetDto>()
-                .ForMember(
-                dest => dest.CategoryName,
-                opt => opt.MapFrom(src => src.Category == null
-                                         ? ""
-                                         : src.Category.CategoryName))
+               
                 .ForMember(
                 dest => dest.ProductName,
                 opt => opt.MapFrom(src => src.ProductName == null

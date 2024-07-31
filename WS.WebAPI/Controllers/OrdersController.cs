@@ -106,7 +106,7 @@ namespace WS.WebAPI.Controllers
         }
 
         [Produces("application/json", "text/plain")]
-        //[ProducesResponseType(200, Type = typeof(ApiResponse<OrderPostDto>))]
+        [ProducesResponseType(200, Type = typeof(ApiResponse<OrderPostDto>))]
         [ProducesResponseType(400, Type = typeof(string))]
         [ProducesResponseType(404, Type = typeof(string))]
         [HttpPost]

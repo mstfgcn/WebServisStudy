@@ -10,7 +10,21 @@ namespace WS.DataAccess.Implementations.EF.Repositories
 
         public async Task<Category> GetByCategoryId(int categoryId, params string[] includeList)
         {
-           return await GetAsync(ctg => ctg.CategoryId == categoryId , includeList);
+           return await GetAsync(ctg =>ctg.CategoryId==categoryId , includeList);
+        }
+
+        public async Task<bool> IsCategoryExistsWithName(string categoryName)
+        {
+
+
+            
+
+            var categories = await GetAllAsync(ctg => ctg.CategoryName == categoryName);
+
+            if (categories != null && categories.Count > 0)
+                return true;
+
+            return false;
         }
 
     }

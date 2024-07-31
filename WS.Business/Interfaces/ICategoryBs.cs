@@ -12,5 +12,7 @@ namespace WS.Business.Interfaces
         Task<ApiResponse<Category>>InsertAsync(CategoryPostDto category);
         Task<ApiResponse<NoData>> UpdateAsync(CategoryPutDto category);
         Task <ApiResponse<NoData>>DeleteAsync (int categoryId);
+
+        
     }
 }

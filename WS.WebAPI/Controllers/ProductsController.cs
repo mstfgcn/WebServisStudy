@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Infrastructure.Utilities;
+using Microsoft.AspNetCore.Mvc;
 using WS.Business.Interfaces;
+using WS.Model.Dtos.Order;
 using WS.Model.Dtos.Product;
 
 namespace WS.WebAPI.Controllers
@@ -29,7 +31,10 @@ namespace WS.WebAPI.Controllers
 
         }
 
-
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(200, Type = typeof(ApiResponse<List<ProductGetDto>>))]
+        [ProducesResponseType(400, Type = typeof(string))]
+        [ProducesResponseType(404, Type = typeof(string))]
         [HttpGet("bycategory")]
         public async Task<ActionResult> GetAllProductsByCategory([FromQuery] int categoryId)
         {
@@ -37,6 +42,10 @@ namespace WS.WebAPI.Controllers
             return SendResponse(response);
         }
 
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(200, Type = typeof(ApiResponse<List<ProductGetDto>>))]
+        [ProducesResponseType(400, Type = typeof(string))]
+        [ProducesResponseType(404, Type = typeof(string))]
         [HttpGet("byprice")]
         // ../api/products/byprice?min=10&max=15  (querystring)
         public async Task<ActionResult> GetAllProductsByPrice([FromQuery] decimal min, [FromQuery] decimal max)
@@ -46,7 +55,10 @@ namespace WS.WebAPI.Controllers
 
         }
 
-
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(200, Type = typeof(ApiResponse<ProductGetDto>))]
+        [ProducesResponseType(400, Type = typeof(string))]
+        [ProducesResponseType(404, Type = typeof(string))]
         [HttpGet("{id}")]
         public async Task<ActionResult> GetProductById(int id)
         {
@@ -55,6 +67,10 @@ namespace WS.WebAPI.Controllers
 
         }
 
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(200, Type = typeof(ApiResponse<ProductGetDto>))]
+        [ProducesResponseType(400, Type = typeof(string))]
+        [ProducesResponseType(404, Type = typeof(string))]
         [HttpPost]
         public async Task<ActionResult> SaveNewProduct([FromBody] ProductPostDto dto)
         {
@@ -64,6 +80,10 @@ namespace WS.WebAPI.Controllers
 
         }
 
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(200, Type = typeof(ApiResponse<NoData>))]
+        [ProducesResponseType(400, Type = typeof(string))]
+        [ProducesResponseType(404, Type = typeof(string))]
         [HttpPut]
         public async Task<ActionResult> UpdateProduct([FromBody] ProductPutDto dto)
         {
@@ -71,9 +91,9 @@ namespace WS.WebAPI.Controllers
             return SendResponse(response);
         }
 
-        //[Produces("application/json", "text/plain")]
-        //[ProducesResponseType(200, Type = typeof(ApiResponse<NoData>))]
-        //[ProducesResponseType(404, Type = typeof(string))]
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(200, Type = typeof(ApiResponse<NoData>))]
+        [ProducesResponseType(404, Type = typeof(string))]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteProduct(int id)
         {

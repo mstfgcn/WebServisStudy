@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WS.Model.Dtos.Category;
 using WS.Model.Entities;
 
 namespace WS.Model.Dtos.Product
@@ -15,7 +16,7 @@ namespace WS.Model.Dtos.Product
 
         public short? UnitsInStock { get; set; }
 
-        public string? CategoryName { get; set; }
+        public CategoryGetDto? Category { get; set; }
 
         
     }

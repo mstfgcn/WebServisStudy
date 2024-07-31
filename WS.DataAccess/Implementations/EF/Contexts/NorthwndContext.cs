@@ -16,7 +16,7 @@ namespace WS.DataAccess.Implementations.EF.Contexts
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<AdminPanelUser> AdminPanelUsers{ get; set; }
 
-
-  }
+    }
 }
