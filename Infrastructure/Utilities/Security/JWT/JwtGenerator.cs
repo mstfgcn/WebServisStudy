@@ -14,7 +14,7 @@ namespace Infrastructure.Utilities.Security.JWT
         public JwtGenerator(IConfiguration configuration)
         {
             _configuration = configuration;
-            _tokenOptions=_configuration.GetSection("TokenOption").Get<TokenOptions>();
+            _tokenOptions=_configuration.GetSection("TokenOptions").Get<TokenOptions>();
             
         }
 
